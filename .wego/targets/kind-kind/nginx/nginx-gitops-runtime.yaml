@@ -1,0 +1,30 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: nginx-wego-apps-dir
+  namespace: wego-system
+spec:
+  interval: 1m0s
+  path: .wego/apps/nginx
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: nginx
+  validation: client
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: kind-kind-nginx
+  namespace: wego-system
+spec:
+  interval: 1m0s
+  path: .wego/targets/kind-kind
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: nginx
+  validation: client
+
