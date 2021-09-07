@@ -1,0 +1,14 @@
+---
+apiVersion: wego.weave.works/v1alpha1
+kind: Application
+metadata:
+  labels:
+    wego.weave.works/app-identifier: wego-6d3536c33d19453f56d4924577e19ff5
+  name: nginx
+  namespace: wego-system
+spec:
+  branch: my-branch
+  deployment_type: kustomize
+  path: ./
+  source_type: git
+  url: ssh://git@github.com/jrryjcksn/nginx.git
